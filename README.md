@@ -1,9 +1,13 @@
 # imagerepo
 Requirements:
 Node js
+
 MongoDB
+
 open port 3001
+
 open port 27017
+
 
 To Setup: in terminal
 npm install
