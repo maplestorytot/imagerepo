@@ -9,6 +9,7 @@ dotenv.config()
 const apiRoot = process.env.DM_API_ROOT
 const app = express()
 app.use(express.json())
+app.use(express.urlencoded({extended:true}))
 app.use(`${process.env.LOCAL_IMAGE_UPLOAD_PATH}`, express.static(`${process.env.LOCAL_IMAGE_UPLOAD_PATH}`));
 
 // TODO: figure out DNT compliance.

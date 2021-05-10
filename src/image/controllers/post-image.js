@@ -43,7 +43,8 @@ function makePostImage ({ addImage, imageHasher }) {
 function makePostBulkImage ({ bulkAddImage, imageHasher }) {
   return async function postImage (httpRequest) {
     try {
-      const [... imageInfos ] = httpRequest.body
+      console.log(httpRequest.body)
+      const imageInfos = httpRequest.body.images
       const imageHashPromises = []
       httpRequest.files.forEach((file, i)=>{
         imageHashPromises.push(imageHasher(imageInfos[i]))

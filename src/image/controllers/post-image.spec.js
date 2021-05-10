@@ -69,17 +69,17 @@ describe('post image controller', () => {
       headers: {
         'Content-Type': 'multipart/form-data'
       },
-      body: images,
+      body: {images},
       files: files,
       ip: faker.internet.ip
     }
     const expected = {
       headers: {
         'Content-Type': 'application/json',
-        'Last-Modified': new Date(request.body[0].modifiedOn).toUTCString()
+        'Last-Modified': new Date(request.body.images[0].modifiedOn).toUTCString()
       },
       statusCode: 201,
-      body: { postedImages: request.body }
+      body: { postedImages: request.body.images }
     }
     const actual = await postBulkImage(request)
     expect(actual).toEqual(expected)
